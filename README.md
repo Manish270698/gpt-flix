@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# GPT-Flix
+
+## Steps done to make the project
+
+- npx create-react-app gpt-flix
+- Tailwind setup
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
