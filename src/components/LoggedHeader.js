@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import logo from "../images/logo.png";
 import downArrow from "../images/downArrow.png";
-import { useDispatch } from "react-redux";
-import { removeUser } from "../utils/userSlice";
+
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { notification, profilePic, search } from "../utils/constants";
 
 const LoggedHeader = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const [showBrowse, setShowBrowse] = useState(false);
   // const [showSignOut, setShowSignOut] = useState(false);
   // const [isFocused, setIsFocused] = useState(false);
 
@@ -32,9 +34,17 @@ const LoggedHeader = () => {
     setShow(!show);
   };
 
+  const handleBrowseClick = () => {
+    setShowBrowse(!showBrowse);
+  };
+
   const handleSignOut = () => {
-    dispatch(removeUser());
-    navigate("/");
+    signOut(auth)
+      .then(() => {})
+      .catch((error) => {
+        // An error happened.
+        navigate("/error");
+      });
   };
   return (
     <div className="z-10 w-[100%] flex flex-wrap fixed justify-between bg-gradient-to-b from-black text-white">
@@ -42,7 +52,6 @@ const LoggedHeader = () => {
         <div>
           <img className="w-16 md:w-24 lg:w-32" src={logo} alt="logo" />
         </div>
-
         <ul className="hidden md:flex text-xs lg:text-sm font-semibold flex-wrap ml-8 lg:ml-10 gap-5 lg:gap-7">
           <li className="cursor-pointer"> Home</li>
           <li className="cursor-pointer">TV Shows</li>
@@ -50,18 +59,42 @@ const LoggedHeader = () => {
           <li className="cursor-pointer">New & Popular</li>
           <li className="cursor-pointer">My List</li>
         </ul>
-        <div className="cursor-pointer w-7 ml-8 text-[10px] md:hidden font-semibold flex group items-center gap-1">
-          <p>Browse</p>
-          <img
-            className="w-3 h-3 group-hover:rotate-180 ease-in duration-100"
-            src={downArrow}
-            alt="options"
-          />
+        <div className="cursor-pointer w-7 ml-8 text-[10px] md:hidden font-semibold">
+          <div className="flex items-center gap-1" onClick={handleBrowseClick}>
+            <p>Browse</p>
+            <img
+              className={`w-3 h-3 ${
+                showBrowse && "rotate-180"
+              } ease-in duration-100`}
+              src={downArrow}
+              alt="options"
+            />
+          </div>
+          {showBrowse && (
+            <div className="relative md:hidden">
+              <img
+                className="w-3 h-3 rotate-180 absolute left-1/2"
+                src={downArrow}
+                alt="options"
+              />
+              <ul className="w-32 bg-black/70 absolute top-4 font-normal rounded-md text-sm p-3">
+                <li className="cursor-pointer hover:underline mb-3"> Home</li>
+                <li className="cursor-pointer hover:underline mb-3">
+                  TV Shows
+                </li>
+                <li className="cursor-pointer hover:underline mb-3">Movies</li>
+                <li className="cursor-pointer hover:underline mb-3">
+                  New & Popular
+                </li>
+                <li className="cursor-pointer hover:underline">My List</li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
       <div className="pr-4 lg:pr-20 flex flex-wrap items-center gap-5 lg:gap-7">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns={search}
           fill="#FFFFFF"
           width="24"
           height="24"
@@ -70,6 +103,7 @@ const LoggedHeader = () => {
           data-icon="MagnifyingGlassStandard"
           aria-hidden="true"
           className="w-7 cursor-pointer"
+          alt="search"
         >
           <path
             fillRule="evenodd"
@@ -79,7 +113,7 @@ const LoggedHeader = () => {
         </svg>
 
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns={notification}
           fill="#FFFFFF"
           width="24"
           height="24"
@@ -88,6 +122,7 @@ const LoggedHeader = () => {
           data-icon="BellStandard"
           aria-hidden="true"
           className="w-7 cursor-pointer"
+          alt="notification"
         >
           <path
             fillRule="evenodd"
@@ -105,7 +140,7 @@ const LoggedHeader = () => {
             >
               <img
                 className="rounded-sm"
-                src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229"
+                src={profilePic}
                 alt="profilePic"
               />
               <img
@@ -130,10 +165,10 @@ const LoggedHeader = () => {
                 alt="options"
               />
               <button
-                className="p-3 rounded-md bg-slate-900"
+                className="group p-3 rounded-md bg-black/70"
                 onClick={handleSignOut}
               >
-                <p className="hover:underline text-sm">Sign Out</p>
+                <p className="group-hover:underline text-sm">Sign Out</p>
               </button>
               {/* </button> */}
             </div>

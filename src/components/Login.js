@@ -9,13 +9,15 @@ import {
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [nameErrorMsg, setNameErrorMsg] = useState(null);
   const [emailErrorMsg, setEmailErrorMsg] = useState(null);
@@ -34,30 +36,47 @@ const Login = () => {
   const name = useRef(null);
 
   const handleValidation = () => {
-    setEmailErrorMsg(validateEmail(email.current.value));
-    setPasswordErrorMsg(validatePassword(password.current.value));
+    setEmailErrorMsg(validateEmail(email?.current?.value));
+    setPasswordErrorMsg(validatePassword(password?.current?.value));
     setFirebaseError(null);
-    console.log("passwordErrorMsg: ", validatePassword(password.current.value));
-    console.log("emailErrorMsg: ", validateEmail(email.current.value));
+    console.log(
+      "passwordErrorMsg: ",
+      validatePassword(password?.current?.value)
+    );
+    console.log("emailErrorMsg: ", validateEmail(email?.current?.value));
 
     if (!isSignInForm) {
-      setNameErrorMsg(validateName(name.current.value));
+      setNameErrorMsg(validateName(name?.current?.value));
       if (
-        validateName(name.current.value) ||
-        validatePassword(password.current.value) ||
-        validateEmail(email.current.value)
+        validateName(name?.current?.value) ||
+        validatePassword(password?.current?.value) ||
+        validateEmail(email?.current?.value)
       )
         return;
       else {
         createUserWithEmailAndPassword(
           auth,
-          email.current.value,
-          password.current.value
+          email?.current?.value,
+          password?.current?.value
         )
           .then((userCredential) => {
-            // Signed up
-            const user = userCredential.user;
-            navigate("/browse");
+            const user = userCredential?.user;
+            // update display name
+            updateProfile(auth.currentUser, {
+              displayName: name?.current?.value,
+            })
+              .then(() => {
+                // Profile updated!
+                // Signed up
+                const { uid, email, displayName } = auth?.currentUser;
+                dispatch(
+                  addUser({ uid: uid, email: email, displayName: displayName })
+                );
+              })
+              .catch((error) => {
+                // An error occurred
+              });
+
             // console.log(user);
           })
           .catch((error) => {
@@ -76,8 +95,8 @@ const Login = () => {
       }
     } else {
       if (
-        validatePassword(password.current.value) ||
-        validateEmail(email.current.value)
+        validatePassword(password?.current?.value) ||
+        validateEmail(email?.current?.value)
       )
         return;
       else {
@@ -88,8 +107,7 @@ const Login = () => {
         )
           .then((userCredential) => {
             // Signed in
-            const user = userCredential.user;
-            navigate("/browse");
+            const user = userCredential?.user;
             // console.log(user);
           })
           .catch((error) => {
@@ -115,7 +133,7 @@ const Login = () => {
     <div>
       <div>
         <img
-          className="-z-20 w-[100%] h-[100%]  object-cover fixed "
+          className="-z-20 w-screen h-screen  object-cover fixed "
           src="https://assets.nflxext.com/ffe/siteui/vlv3/c7f07b68-7989-4ff7-a31e-11c17dcc2fea/fcf685b8-3f9f-42d8-9af3-4bb86fa5a3b8/IN-en-20240422-popsignuptwoweeks-perspective_alpha_website_large.jpg"
           alt="background"
         />
@@ -126,7 +144,7 @@ const Login = () => {
         <div className="h-screen w-[100%]">
           <form
             onClick={(e) => e.preventDefault()}
-            className="flex flex-wrap justify-center py-12 bg-black/70 w-11/12 md:w-6/12 xl:w-4/12 my-32 m-auto text-white  rounded-md"
+            className="flex flex-wrap justify-center py-12 bg-black/70 w-11/12 md:w-6/12 xl:w-4/12 mt-8 m-auto text-white  rounded-md"
           >
             <h1 className="text-3xl font-bold w-[70%] ml-2 mb-6">
               {isSignInForm ? "Sign In" : "Sign Up"}
