@@ -4,6 +4,9 @@
 
 - npx create-react-app gpt-flix
 - Tailwind setup
+- Used Firebase to setup user authentication
+- Used TMDB api to get movies list
+- Used Youtube embed to show trailer video
 
 ## Getting Started with Create React App
 

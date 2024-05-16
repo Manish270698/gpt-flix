@@ -39,11 +39,6 @@ const Login = () => {
     setEmailErrorMsg(validateEmail(email?.current?.value));
     setPasswordErrorMsg(validatePassword(password?.current?.value));
     setFirebaseError(null);
-    console.log(
-      "passwordErrorMsg: ",
-      validatePassword(password?.current?.value)
-    );
-    console.log("emailErrorMsg: ", validateEmail(email?.current?.value));
 
     if (!isSignInForm) {
       setNameErrorMsg(validateName(name?.current?.value));
@@ -82,7 +77,6 @@ const Login = () => {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log("signup: ", errorCode, errorMessage);
             setFirebaseError(
               errorMessage
                 .substring(
@@ -113,9 +107,6 @@ const Login = () => {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log("signin: ", errorCode, errorMessage);
-            console.log("emailErrorMsg: ", emailErrorMsg);
-            console.log("passwordErrorMsg: ", passwordErrorMsg);
             setFirebaseError(
               errorMessage
                 .substring(

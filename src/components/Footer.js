@@ -18,7 +18,7 @@ const Footer = () => {
 
         // Sanitize displayName before dispatching
         const sanitizedDisplayName = DOMPurify.sanitize(displayName);
-        console.log(sanitizedDisplayName);
+        // console.log(sanitizedDisplayName);
 
         dispatch(addUser({ uid, email, displayName: sanitizedDisplayName }));
         navigate("/browse");
@@ -33,8 +33,8 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-t from-black text-white flex justify-center text-xs h-8 items-center">
-      Made by Manish
+    // <div className="bg-gradient-to-t mt- w-screen border-red-500 border-2 from-black text-white flex justify-center text-xs h-8 items-center">
+    <div>  
     </div>
   );
 };

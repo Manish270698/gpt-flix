@@ -32,10 +32,12 @@ const LoggedHeader = () => {
 
   const handleClick = () => {
     setShow(!show);
+    setShowBrowse(false);
   };
 
   const handleBrowseClick = () => {
     setShowBrowse(!showBrowse);
+    setShow(false);
   };
 
   const handleSignOut = () => {
@@ -134,15 +136,9 @@ const LoggedHeader = () => {
           <div className="w-8 cursor-pointer ">
             <button
               className="group flex items-center gap-1"
-              // onMouseEnter={handleMouseEnter}
-              // onMouseLeave={handleMouseLeave}
               onClick={handleClick}
             >
-              <img
-                className="rounded-sm"
-                src={profilePic}
-                alt="profilePic"
-              />
+              <img className="rounded-sm" src={profilePic} alt="profilePic" />
               <img
                 className={`hidden lg:block w-3 h-3 cursor-pointer ${
                   show && "rotate-180"
@@ -152,13 +148,8 @@ const LoggedHeader = () => {
               />
             </button>
           </div>
-          {/* {(showSignOut || isFocused) && ( */}
           {show && (
             <div className="right-4 lg:right-[64px] absolute my-3">
-              {/* <button
-              // onMouseEnter={handleSignOutEnter}
-              // onMouseLeave={handleSigOutLeave}
-              > */}
               <img
                 className="w-3 h-3 rotate-180 absolute right-2 lg:right-6 -top-3"
                 src={downArrow}
@@ -170,7 +161,6 @@ const LoggedHeader = () => {
               >
                 <p className="group-hover:underline text-sm">Sign Out</p>
               </button>
-              {/* </button> */}
             </div>
           )}
         </div>
