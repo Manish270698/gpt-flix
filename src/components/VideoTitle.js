@@ -6,8 +6,8 @@ const VideoTitle = ({ title, overview }) => {
     <div className="absolute pl-4 lg:pl-12 pt-[20%] bg-gradient-to-r from-black h-[100%]  w-2/5 text-white">
       <h1 className="md:text-2xl lg:text-4xl font-bold">{title}</h1>
       <p className="hidden md:block text-xs md:text-base mt-5">{overview}</p>
-      <div className="flex text-[8px] md:text-lg lg:text-xl font-semibold gap-2 mt-5">
-        <button className="bg-white hover:bg-gray-300 flex gap-2 justify-center text-black items-center px-3 py-2 md:px-6 md:py-2 rounded-md">
+      <div className="flex text-[7px] md:text-lg lg:text-xl font-semibold gap-2 mt-5">
+        <button className="bg-white hover:bg-gray-300 flex gap-1 justify-center text-black items-center px-3 py-2 md:px-6 md:py-2 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
@@ -23,7 +23,7 @@ const VideoTitle = ({ title, overview }) => {
           </svg>
           Play
         </button>
-        <button className="bg-black/60 hover:bg-black/45 text-white flex gap-2 justify-center items-center px-3 py-2 md:px-6 md:py-2 rounded-md">
+        <button className="bg-black/60 hover:bg-black/45 text-white flex gap-1 justify-center items-center px-3 py-2 md:px-6 md:py-2 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#FFFFFF"

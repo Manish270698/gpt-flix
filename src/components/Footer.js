@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser, removeUser } from "../utils/userSlice";
-import { onAuthStateChanged } from "firebase/auth";
+import { browserSessionPersistence, onAuthStateChanged, setPersistence } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import DOMPurify from "dompurify";
+
 
 const Footer = () => {
   const dispatch = useDispatch();
@@ -12,10 +13,10 @@ const Footer = () => {
 
   // Manages current user for signIn/signOut and signUp
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth,  (user) => {
       if (user) {
         const { uid, email, displayName } = user;
-
+        setPersistence(auth, browserSessionPersistence);
         // Sanitize displayName before dispatching
         const sanitizedDisplayName = DOMPurify.sanitize(displayName);
         // console.log(sanitizedDisplayName);
