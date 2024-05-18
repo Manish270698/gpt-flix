@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
-  console.log("movieId : ",movieId);
 
   const getMovieVideos = async () => {
     const data = await fetch(

@@ -6,7 +6,6 @@ import VideoTitle from "./VideoTitle";
 const VideoBackground = ({ overview, title, movieId }) => {
   useMovieTrailer(movieId);
   const trailer = useSelector((store) => store?.movies?.trailerVideo);
-  console.log("trailerKey : ",trailer?.key);
   return (
     <div className="relative z-0 ">
       <VideoTitle title={title} overview={overview} />
