@@ -5,6 +5,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { browserSessionPersistence, onAuthStateChanged, setPersistence } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import DOMPurify from "dompurify";
+import { removeAll } from "../utils/moviesSlice";
 
 
 const Footer = () => {
@@ -25,6 +26,7 @@ const Footer = () => {
         navigate("/browse");
       } else {
         dispatch(removeUser());
+        dispatch(removeAll());
         navigate("/");
       }
     });
