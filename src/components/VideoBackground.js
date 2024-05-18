@@ -4,19 +4,21 @@ import useMovieTrailer from "../hooks/useMovieTrailer";
 import VideoTitle from "./VideoTitle";
 
 const VideoBackground = ({ overview, title, movieId }) => {
-  const trailer = useSelector((store) => store.movies.trailerVideo);
   useMovieTrailer(movieId);
+  const trailer = useSelector((store) => store?.movies?.trailerVideo);
+  console.log("trailerKey : ",trailer?.key);
   return (
-    <div className="relative">
+    <div className="relative z-0 ">
       <VideoTitle title={title} overview={overview} />
+      {/* <div className="w-[100%] aspect-video -mt-6 md:-mt-16">
+
+      </div> */}
       <iframe
-        className="w-screen aspect-video"
+        className="w-[100%] aspect-video -mt-6 md:-mt-16 overflow-hidden"
         src={`https://www.youtube.com/embed/${trailer?.key}?si=Me7-3gvdOrdDyfrE&amp;controls=0&mute=1&autoplay=1&rel=0&loop=1&playlist=${trailer?.key}`}
         title="Movie Clip"
         allow="autoplay"
         referrerPolicy="strict-origin-when-cross-origin"
-        frameborder="0"
-        allowfullscreen
       ></iframe>
 
       {/* <iframe

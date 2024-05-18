@@ -5,7 +5,7 @@ import downArrow from "../images/downArrow.png";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { notification, profilePic, search } from "../utils/constants";
+import { NOTIFICATION, PROFILE_PIC, SEARCH } from "../utils/constants";
 
 const LoggedHeader = () => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const LoggedHeader = () => {
       });
   };
   return (
-    <div className="z-10 w-[100%] flex flex-wrap fixed justify-between bg-gradient-to-b from-black text-white">
+    <div className="z-30 w-[100%] flex flex-wrap top-0 fixed justify-between bg-gradient-to-b from-black text-white">
       <div className=" items-center flex flex-wrap pl-4 lg:pl-12 h-14 lg:h-20 ">
         <div>
           <img className="w-16 md:w-24 lg:w-32" src={logo} alt="logo" />
@@ -96,7 +96,7 @@ const LoggedHeader = () => {
       </div>
       <div className="pr-4 lg:pr-20 flex flex-wrap items-center gap-5 lg:gap-7">
         <svg
-          xmlns={search}
+          xmlns={SEARCH}
           fill="#FFFFFF"
           width="24"
           height="24"
@@ -115,7 +115,7 @@ const LoggedHeader = () => {
         </svg>
 
         <svg
-          xmlns={notification}
+          xmlns={NOTIFICATION}
           fill="#FFFFFF"
           width="24"
           height="24"
@@ -138,7 +138,7 @@ const LoggedHeader = () => {
               className="group flex items-center gap-1"
               onClick={handleClick}
             >
-              <img className="rounded-sm" src={profilePic} alt="profilePic" />
+              <img className="rounded-sm" src={PROFILE_PIC} alt="profilePic" />
               <img
                 className={`hidden lg:block w-3 h-3 cursor-pointer ${
                   show && "rotate-180"

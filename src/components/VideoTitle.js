@@ -1,13 +1,14 @@
 import React from "react";
-import play from "../images/play.png";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="absolute pl-4 lg:pl-12 pt-[20%] bg-gradient-to-r from-black h-[100%]  w-2/5 text-white">
-      <h1 className="md:text-2xl lg:text-4xl font-bold">{title}</h1>
-      <p className="hidden md:block text-xs md:text-base mt-5">{overview}</p>
-      <div className="flex text-[7px] md:text-lg lg:text-xl font-semibold gap-2 mt-5">
-        <button className="bg-white hover:bg-gray-300 flex gap-1 justify-center text-black items-center px-3 py-2 md:px-6 md:py-2 rounded-md">
+    <div className="absolute pl-4 lg:pl-12 pt-[25%] lg:pt-[25%] bg-gradient-to-r from-black h-[100%] w-2/5 text-white">
+      <h1 className="md:text-2xl xl:text-4xl font-bold">{title}</h1>
+      <p className="hidden lg:block text-xs xl:text-base mt-5">
+        {overview.length <= 250 ? overview : overview.slice(0, 250) + "..."}
+      </p>
+      <div className="flex text-[7px] md:text-sm lg:text-xl font-semibold gap-2 mt-5">
+        <button className="bg-white hover:bg-gray-300 flex gap-1 justify-center text-black items-center px-3 py-1 md:px-6 md:py-2 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
@@ -17,13 +18,13 @@ const VideoTitle = ({ title, overview }) => {
             role="img"
             data-icon="PlayStandard"
             aria-hidden="true"
-            className="h-3 md:h-6"
+            className="h-3 xl:h-6"
           >
             <path d="M5 2.69127C5 1.93067 5.81547 1.44851 6.48192 1.81506L23.4069 11.1238C24.0977 11.5037 24.0977 12.4963 23.4069 12.8762L6.48192 22.1849C5.81546 22.5515 5 22.0693 5 21.3087V2.69127Z"></path>
           </svg>
           Play
         </button>
-        <button className="bg-black/60 hover:bg-black/45 text-white flex gap-1 justify-center items-center px-3 py-2 md:px-6 md:py-2 rounded-md">
+        <button className="bg-black/60 hover:bg-black/45 text-white flex gap-1 justify-center items-center px-3 py-1 md:px-6 md:py-2 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#FFFFFF"
@@ -31,7 +32,7 @@ const VideoTitle = ({ title, overview }) => {
             role="img"
             data-icon="CircleIStandard"
             aria-hidden="true"
-            className="h-3 md:h-6"
+            className="h-3 xl:h-6"
           >
             <path
               fillRule="evenodd"

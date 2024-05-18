@@ -71,8 +71,6 @@ const Login = () => {
               .catch((error) => {
                 // An error occurred
               });
-
-            // console.log(user);
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -102,7 +100,6 @@ const Login = () => {
           .then((userCredential) => {
             // Signed in
             const user = userCredential?.user;
-            // console.log(user);
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -128,11 +125,10 @@ const Login = () => {
           src="https://assets.nflxext.com/ffe/siteui/vlv3/c7f07b68-7989-4ff7-a31e-11c17dcc2fea/fcf685b8-3f9f-42d8-9af3-4bb86fa5a3b8/IN-en-20240422-popsignuptwoweeks-perspective_alpha_website_large.jpg"
           alt="background"
         />
-        {/* <div className="-z-10 w-[100%] h-[600px] fixed bg-gradient-to-b from-black"></div> */}
       </div>
       <div className="">
         <Header />
-        <div className="h-screen w-[100%]">
+        <div className=" w-[100%]">
           <form
             onClick={(e) => e.preventDefault()}
             className="flex flex-wrap justify-center py-12 bg-black/70 w-11/12 md:w-6/12 xl:w-4/12 mt-8 m-auto text-white  rounded-md"

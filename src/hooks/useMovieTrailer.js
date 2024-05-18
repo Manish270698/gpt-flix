@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
+  console.log("movieId : ",movieId);
 
   const getMovieVideos = async () => {
     const data = await fetch(
@@ -12,13 +13,13 @@ const useMovieTrailer = (movieId) => {
       API_OPTIONS
     );
     const json = await data.json();
-    const filterVideos = json.results.filter(
+    const filterVideos = await json.results.filter(
       (video) =>
         (video.type === "Trailer" || video.type === "Teaser") &&
         video.site === "YouTube"
     );
-    const videoNum = Math.floor(Math.random() * filterVideos.length) + 1;
-    const trailer = filterVideos[videoNum];
+    const videoNum = Math.floor(Math.random() * filterVideos.length);
+    const trailer = await filterVideos[videoNum];
     dispatch(addTrailerVideo(trailer));
   };
 
