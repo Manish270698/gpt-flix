@@ -7,11 +7,19 @@ export const MOVIES_API =
   "https://api.themoviedb.org/3/movie/now_playing?page=1";
 
 export const TRENDING_MOVIES =
-  "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+  "https://api.themoviedb.org/3/trending/movie/day?page=1";
+
+export const POPULAR_MOVIES_API =
+  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
+
+export const TO_RATED_MOVIES_API =
+  "https://api.themoviedb.org/3/movie/top_rated?&page=1";
+
+export const UPCOMING_MOVIES_API = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
 
 export const TRENDING_TV =
-  "https://api.themoviedb.org/3/trending/tv/day?language=en-US";
-  
+  "https://api.themoviedb.org/3/trending/tv/day?page=1";
+
 export const API_OPTIONS = {
   method: "GET",
   headers: {
