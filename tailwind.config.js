@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      // animation: {
+      //   'ping': 'ping 1s linear',
+      // }
+    },
   },
   plugins: [],
 };

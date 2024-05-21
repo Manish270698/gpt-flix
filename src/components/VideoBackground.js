@@ -13,8 +13,8 @@ const VideoBackground = ({ overview, title, movieId }) => {
 
       </div> */}
       <iframe
-        className="w-[100%] aspect-video -mt-6 md:-mt-16 overflow-hidden"
-        src={`https://www.youtube.com/embed/${trailer?.key}?si=Me7-3gvdOrdDyfrE&amp;controls=0&mute=1&autoplay=1&rel=0&loop=1&playlist=${trailer?.key}`}
+        className="w-[100%] aspect-video -mt-6 lg:-mt-16 overflow-hidden"
+        src={`https://www.youtube.com/embed/${trailer?.key}?controls=0&mute=1&autoplay=1&rel=0&loop=1&playlist=${trailer?.key}`}
         title="Movie Clip"
         allow="autoplay"
         referrerPolicy="strict-origin-when-cross-origin"

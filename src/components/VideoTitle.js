@@ -7,7 +7,7 @@ const VideoTitle = ({ title, overview }) => {
       <p className="hidden lg:block text-xs xl:text-base mt-5">
         {overview.length <= 250 ? overview : overview.slice(0, 250) + "..."}
       </p>
-      <div className="flex text-[7px] md:text-sm lg:text-xl font-semibold gap-2 mt-5">
+      <div className="flex text-[7px] md:text-sm lg:text-xl font-semibold gap-2 mt-4 lg:mt-5">
         <button className="bg-white hover:bg-gray-300 flex gap-1 justify-center text-black items-center px-3 py-1 md:px-6 md:py-2 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
