@@ -2,11 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import useMovieTrailer from "../hooks/useMovieTrailer";
 import VideoTitle from "./VideoTitle";
+import VideoShimmer from "./VideoShimmer";
 
 const VideoBackground = ({ overview, title, movieId }) => {
   useMovieTrailer(movieId);
   const trailer = useSelector((store) => store?.movies?.trailerVideo);
-  return (
+  return !trailer? <VideoShimmer /> :(
     <div className="relative z-0 ">
       <VideoTitle title={title} overview={overview} />
       {/* <div className="w-[100%] aspect-video -mt-6 md:-mt-16">

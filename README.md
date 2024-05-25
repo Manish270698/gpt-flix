@@ -7,6 +7,9 @@
 - Used Firebase to setup user authentication
 - Used TMDB api to get movies list
 - Used Youtube embed to show trailer video
+- gptTurbo-3.5 api to get movie suggestions
+- TMDB search api to get the suggested movies listto show the user
+- ## Multi-language support on movie suggestions page
 
 ## Getting Started with Create React App
 

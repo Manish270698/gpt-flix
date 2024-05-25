@@ -1,3 +1,5 @@
+import { RxValue } from "react-icons/rx";
+
 export const SEARCH = "http://www.w3.org/2000/svg";
 export const NOTIFICATION = "http://www.w3.org/2000/svg";
 export const PROFILE_PIC =
@@ -15,7 +17,8 @@ export const POPULAR_MOVIES_API =
 export const TO_RATED_MOVIES_API =
   "https://api.themoviedb.org/3/movie/top_rated?&page=1";
 
-export const UPCOMING_MOVIES_API = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+export const UPCOMING_MOVIES_API =
+  "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
 
 export const TRENDING_TV =
   "https://api.themoviedb.org/3/trending/tv/day?page=1";
@@ -30,3 +33,30 @@ export const API_OPTIONS = {
 };
 
 export const IMAGE_CDN = "https://image.tmdb.org/t/p/w500";
+
+export const LANGAUGES = {
+  en: {
+    name: "English",
+    value: "en",
+    searchText: "Search",
+    findText: "What would you like to watch today?",
+  },
+  hin: {
+    name: "हिंदी",
+    value: "hin",
+    searchText: "खोजे",
+    findText: "आज आप क्या देखना चाहेंगे?",
+  },
+  esp: {
+    name: "español",
+    value: "esp",
+    searchText: "buscar",
+    findText: "¿Qué te gustaría ver hoy?",
+  },
+};
+
+export const OPENAI_KEY =
+  "sk-proj-uKmZAA8nsS36x6vVLlh3T3BlbkFJtbVEKAD7Xe7OPh9ek9yL";
+
+export const MOVIE_SEARCH_API =
+  "https://api.themoviedb.org/3/search/movie?query=";

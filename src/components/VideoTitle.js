@@ -2,8 +2,9 @@ import React from "react";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="absolute pl-4 lg:pl-12 pt-[25%] lg:pt-[25%] bg-gradient-to-r from-black h-[100%] w-2/5 text-white">
+    <div className="absolute pl-4 lg:pl-12 pt-[25%] lg:pt-[25%] bg-gradient-to-r from-black h-[100%] w-[55%] lg:w-2/5 text-white">
       <h1 className="md:text-2xl xl:text-4xl font-bold">{title}</h1>
+      
       <p className="hidden lg:block text-xs xl:text-base mt-5">
         {overview.length <= 250 ? overview : overview.slice(0, 250) + "..."}
       </p>

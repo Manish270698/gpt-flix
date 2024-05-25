@@ -16,24 +16,6 @@ const LoggedHeader = () => {
   const showSearchGpt = useSelector((store) => store.search.showGPT);
   const [show, setShow] = useState(false);
   const [showBrowse, setShowBrowse] = useState(false);
-  // const [showSignOut, setShowSignOut] = useState(false);
-  // const [isFocused, setIsFocused] = useState(false);
-
-  // const handleMouseEnter = () => {
-  //   setShowSignOut(true); // Show sign out on enter
-  // };
-
-  // const handleMouseLeave = () => {
-  //   const timeout = setTimeout(() => {
-  //     if (isFocused === false) {
-  //       setShowSignOut(false);
-  //       clearTimeout(timeout);
-  //     }
-  //   }, 500);
-  //   // console.log("isFocused: :", isFocused);
-  // };
-  // const handleSignOutEnter = () => setIsFocused(true);
-  // const handleSigOutLeave = () => setIsFocused(false);
 
   const handleSearchClick = () => {
     dispatch(toggleGptSearch());
@@ -106,9 +88,10 @@ const LoggedHeader = () => {
       </div>
       <div className="pr-4 lg:pr-20 flex flex-wrap items-center gap-5 lg:gap-7">
         <div
-          className="hover:bg-red-700/70 bg-red-700 py-1 px-2 md:p-2 motion-reduce:animate-bounce rounded-full cursor-pointer"
+          className=" flex gap-2 items-center justify-center hover:bg-red-700 bg-red-700/80 py-1 px-2 md:py-2 md:px-3 rounded-full cursor-pointer"
           onClick={handleSearchClick}
         >
+          <div className="text-sm font-semibold lg:text-base lg:block">GPT Search</div>
           <svg
             xmlns={SEARCH}
             fill="#FFFFFF"

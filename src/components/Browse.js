@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import LoggedHeader from "./LoggedHeader";
 import Footer from "./Footer";
 import useMoviesList from "../hooks/useMoviesList";
@@ -9,7 +8,6 @@ import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTrendingTV from "../hooks/useTrendingTV";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
-import { useSelector } from "react-redux";
 
 const Browse = () => {
   useMoviesList();
