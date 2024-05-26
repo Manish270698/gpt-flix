@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Login from "./components/Login";
+import Login from "./components/Header/Login";
 import Browse from "./components/Browse";
 
 const App = () => {

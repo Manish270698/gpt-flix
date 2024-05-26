@@ -1,15 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
-import CLOSE from "../images/close.png";
-import { API_OPTIONS, LANGAUGES, MOVIE_SEARCH_API } from "../utils/constants";
+import CLOSE from "../../images/close.png";
+import {
+  API_OPTIONS,
+  LANGAUGES,
+  MOVIE_SEARCH_API,
+} from "../../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addMovies,
   changeLanguage,
   removeMovies,
   toggleGptSearch,
-} from "../utils/searchGptSlice";
+} from "../../utils/searchGptSlice";
 import { IoLanguageSharp } from "react-icons/io5";
-import openai from "../utils/openai";
+import openai from "../../utils/openai";
 import { useNavigate } from "react-router-dom";
 import SearchedMovies from "./SearchedMovies";
 

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import logo from "../images/logo.png";
-import downArrow from "../images/downArrow.png";
+import logo from "../../images/logo.png";
+import downArrow from "../../images/downArrow.png";
 
 import { signOut } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { auth } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { PROFILE_PIC, SEARCH } from "../utils/constants";
+import { PROFILE_PIC, SEARCH } from "../../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import SearchPage from "./SearchPage";
-import { toggleGptSearch } from "../utils/searchGptSlice";
+import SearchPage from "../GPT/SearchPage";
+import { toggleGptSearch } from "../../utils/searchGptSlice";
 
 const LoggedHeader = () => {
   const navigate = useNavigate();
@@ -91,7 +91,9 @@ const LoggedHeader = () => {
           className=" flex gap-2 items-center justify-center hover:bg-red-700 bg-red-700/80 py-1 px-2 md:py-2 md:px-3 rounded-full cursor-pointer"
           onClick={handleSearchClick}
         >
-          <div className="text-sm font-semibold lg:text-base lg:block">GPT Search</div>
+          <div className="text-sm font-semibold lg:text-base lg:block">
+            GPT Search
+          </div>
           <svg
             xmlns={SEARCH}
             fill="#FFFFFF"

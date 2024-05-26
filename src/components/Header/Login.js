@@ -4,17 +4,17 @@ import {
   validateEmail,
   validatePassword,
   validateName,
-} from "../utils/validate";
+} from "../../utils/validate";
 
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
-import Footer from "./Footer";
+import { auth } from "../../utils/firebase";
+import Footer from "../Footer";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../../utils/userSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
