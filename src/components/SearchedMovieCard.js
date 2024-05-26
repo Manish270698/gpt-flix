@@ -3,8 +3,8 @@ import { IMAGE_CDN } from "../utils/constants";
 
 const SearchedMovieCard = ({ movie }) => {
   return movie ? (
-    <div className="mt-4 lg:mt-6">
-      <div className="grid grid-cols-12 cursor-pointer hover:bg-opacity-100">
+    <div>
+      <div className="mt-4 lg:mt-6 grid grid-cols-12 cursor-pointer hover:bg-opacity-100">
         <div className=" flex justify-center col-span-4">
           <img
             className="w-[65%] xl:w-[50%] rounded-md"
@@ -36,7 +36,7 @@ const SearchedMovieCard = ({ movie }) => {
       <hr className="mt-4 lg:mt-6 w-[90%] m-auto" />
     </div>
   ) : (
-    ""
+    <div></div>
   );
 };
 

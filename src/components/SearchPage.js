@@ -52,7 +52,7 @@ const SearchPage = () => {
     const gptQuery =
       "Act as a movie recommendation system and suggest some movies for the query: " +
       searchText.current.value +
-      ". Only give me name of 5 movies, comma separated(no space after comma) like the example result given ahead. Example Result: Gadar,Sholay,Don,3 Idiots,Hera Pheri";
+      ". Only give me name of 10 movies, comma separated(no space after comma) like the example result given ahead. Example Result: Gadar,Sholay,Don,3 Idiots,Hera Pheri,Gadar 2,Nayak,Don 2,PK,Phir Hera Pheri";
     const gptResults = await openai.chat.completions.create({
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
@@ -131,7 +131,7 @@ const SearchPage = () => {
       </div>
       {searchClicked ? (
         <div
-          className="h-[60%] m-auto overflow-y-scroll bg-black/70 w-[93%] md:w-4/5 lg:w-2/3 xl:1/2 p-4 rounded-md"
+          className="max-h-[60%] m-auto overflow-y-scroll bg-black/70 w-[93%] md:w-4/5 lg:w-2/3 xl:1/2 p-4 rounded-md"
           onClick={(e) => e.stopPropagation()}
         >
           <SearchedMovies />

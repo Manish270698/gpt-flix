@@ -1,5 +1,3 @@
-import { RxValue } from "react-icons/rx";
-
 export const SEARCH = "http://www.w3.org/2000/svg";
 export const NOTIFICATION = "http://www.w3.org/2000/svg";
 export const PROFILE_PIC =
@@ -28,7 +26,7 @@ export const API_OPTIONS = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMmU1OGY0ZjZmZDRjNDZiYmUxZDM1NzQyNWE0MzRiMyIsInN1YiI6IjY2M2RhNzc1YTFlMjk2YWQwMTc5Mzc2MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IYiK8EqsF2OPLdz1PPa6ZS6QUlHzWibLuJhS7LevDBw",
+      "Bearer "+process.env.REACT_APP_TMDB_KEY,
   },
 };
 
@@ -55,8 +53,7 @@ export const LANGAUGES = {
   },
 };
 
-export const OPENAI_KEY =
-  "sk-proj-uKmZAA8nsS36x6vVLlh3T3BlbkFJtbVEKAD7Xe7OPh9ek9yL";
+export const OPENAI_KEY = process.env.REACT_APP_GPT_KEY;
 
 export const MOVIE_SEARCH_API =
   "https://api.themoviedb.org/3/search/movie?query=";
