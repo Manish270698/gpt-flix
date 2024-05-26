@@ -9,6 +9,7 @@
 - Used Youtube embed to show trailer video
 - gptTurbo-3.5 api to get movie suggestions
 - TMDB search api to get the suggested movies listto show the user
+- Memoization(api's called only when Redux store is empty)
 - ## Multi-language support on movie suggestions page
 
 ## Getting Started with Create React App
