@@ -8,6 +8,8 @@ import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTrendingTV from "../hooks/useTrendingTV";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import MovieListShimmer from "./MovieListShimmer";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
   useMoviesList();
@@ -16,11 +18,13 @@ const Browse = () => {
   useTrendingMovies();
   useTrendingTV();
   useUpcomingMovies();
+
+  const movies = useSelector((store) => store.movies);
   return (
     <div>
       <LoggedHeader />
       <MainContainer />
-      <SecondaryContainer />
+      {!movies ? <MovieListShimmer /> : <SecondaryContainer />}
       <Footer />
     </div>
   );

@@ -13,9 +13,7 @@ const SecondaryContainer = () => {
   const trendingTV = useSelector((store) => store?.movies?.trendingTV);
   const upcomingMovies = useSelector((store) => store?.movies?.upcomingMovies);
 
-  return !useSelector((store) => store.movies) ? (
-    <MovieListShimmer />
-  ) : (
+  return (
     <div className="absolute bg-black w-[100%]">
       <div className="-mt-[60px] md:-mt-32 lg:-mt-36 xl:-mt-44">
         <MovieList title="Now Playing" movies={nowPlayingMovies} />
