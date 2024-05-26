@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import VideoBackground from "./VideoBackground";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store?.movies?.trendingMovies);
-  if (!movies) return; // Early return
+  const [mainMovie, setMainMovie] = useState(null);
 
-  const mainMovie = movies[Math.floor(Math.random() * movies.length)];
+  useEffect(() => {
+    if (movies && movies.length > 0) {
+      const selectedMovie = movies[Math.floor(Math.random() * movies.length)];
+      setMainMovie(selectedMovie);
+    }
+  }, [movies]);
+
+  if (!mainMovie) return; // Early return
+
   const { title, overview, id } = mainMovie;
-  
 
   return (
     <div className="">
-      <VideoBackground movieId={id} title={title} overview={overview}/>
+      <VideoBackground movieId={id} title={title} overview={overview} />
     </div>
   );
 };

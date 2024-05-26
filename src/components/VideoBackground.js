@@ -7,7 +7,11 @@ import VideoShimmer from "./VideoShimmer";
 const VideoBackground = ({ overview, title, movieId }) => {
   useMovieTrailer(movieId);
   const trailer = useSelector((store) => store?.movies?.trailerVideo);
-  return !trailer? <VideoShimmer /> :(
+  console.log(title, overview, movieId);
+  console.log("trailer: ", trailer);
+  return !trailer ? (
+    <VideoShimmer />
+  ) : (
     <div className="relative z-0 ">
       <VideoTitle title={title} overview={overview} />
       {/* <div className="w-[100%] aspect-video -mt-6 md:-mt-16">
