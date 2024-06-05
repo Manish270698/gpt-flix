@@ -1,4 +1,4 @@
-# GPT-Flix
+# GPT-Flix/StreamGPT
 
 ## Steps done to make the project
 
