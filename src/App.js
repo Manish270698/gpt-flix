@@ -3,6 +3,7 @@ import appStore from "./utils/appStore";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./components/Header/Login";
 import Browse from "./components/Browse";
+import Error from "./components/Error";
 
 const App = () => {
   const appRouter = createBrowserRouter([
@@ -13,6 +14,10 @@ const App = () => {
     {
       path: "/browse",
       element: <Browse />,
+    },
+    {
+      path: "/error",
+      element: <Error />,
     },
   ]);
   return (
