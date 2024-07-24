@@ -59,7 +59,7 @@ const SearchPage = () => {
       ". Only give me name of 10 movies, comma separated(no space after comma) like the example result given ahead. Example Result: Gadar,Sholay,Don,3 Idiots,Hera Pheri,Gadar 2,Nayak,Don 2,PK,Phir Hera Pheri";
     const gptResults = await openai.chat.completions.create({
       messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini",
     });
 
     if (!gptResults.choices) {
